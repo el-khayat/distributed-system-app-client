@@ -250,14 +250,16 @@ public class HelloController implements Initializable {
             PaneFilter.setVisible(true);
             PaneConv.setVisible(true);
             imageView.setFitWidth(800);
-            imageView.setFitHeight(540);
-            imageView.setLayoutX(45);
+            imageView.setFitHeight(450);
+            imageView.setLayoutX(70);
             imageView.setLayoutY(10);
 
             imageView1.setFitWidth(800);
-            imageView1.setFitHeight(540);
-            imageView1.setLayoutX(45);
+            imageView1.setFitHeight(450);
+            imageView1.setLayoutX(70);
             imageView1.setLayoutY(10);
+
+
         } else {
             System.out.println("No file selected.");
         }

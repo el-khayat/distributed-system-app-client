@@ -126,7 +126,7 @@
                               <Image url="@asstes/filterImageLarge.png" />
                            </image>
                         </ImageView>
-                        <Button layoutX="29.0" layoutY="428.0" mnemonicParsing="false" styleClass="border" text="Get Started" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="31.0" />
+                        <Button layoutX="29.0" layoutY="428.0" mnemonicParsing="false" onAction="#onFilterButtonClick" styleClass="border" text="Get Started" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="31.0" />
                         <TextFlow layoutX="27.0" layoutY="262.0" prefHeight="147.0" prefWidth="190.0" AnchorPane.bottomAnchor="153.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="270.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transform your photos with our filters. Easy-to-use interface. Get started now and create stunning images." wrappingWidth="138.13671875">
@@ -145,7 +145,7 @@
                               <Image url="@asstes/matrix1.png" />
                            </image>
                         </ImageView>
-                        <Button layoutX="33.0" layoutY="427.0" mnemonicParsing="false" styleClass="border" text="Get Started" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="27.0" />
+                        <Button layoutX="33.0" layoutY="427.0" mnemonicParsing="false" onAction="#onMatrixButtonClick" styleClass="border" text="Get Started" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="27.0" />
                         <TextFlow layoutX="26.0" layoutY="310.0" prefHeight="147.0" prefWidth="200.0" AnchorPane.topAnchor="270.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Calculate matrix (+ - *) operations. User-friendly interface. Get started and solve complex equations quickly and easily." wrappingWidth="138.13671875">
@@ -164,7 +164,7 @@
                               <Image url="@asstes/join.png" />
                            </image>
                         </ImageView>
-                        <Button layoutX="31.0" layoutY="427.0" mnemonicParsing="false" styleClass="border" text="Get Started" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="31.0" />
+                        <Button layoutX="31.0" layoutY="427.0" mnemonicParsing="false" onAction="#onChatButtonClick" styleClass="border" text="Get Started" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="31.0" />
                         <TextFlow layoutX="21.0" layoutY="279.0" prefHeight="147.0" prefWidth="200.0" AnchorPane.topAnchor="270.0">
                            <children>
                               <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Join chat rooms with other users. Connect with friends and make new ones. Get started and start chatting today!" wrappingWidth="138.13671875">
