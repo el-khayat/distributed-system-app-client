@@ -1,0 +1,77 @@
+/**{*/
+/*    -fx-arc-height: 100%;*/
+/*    -fx-fill-height: 100%;*/
+/*}*/
+.sidebare{
+    -fx-background-color: #2263F3;
+    -fx-arc-height: 100%;
+    -fx-fill-height: 100%;
+}
+.button {
+    -fx-background-color: #2263F3;
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+    -fx-font-size: 12pt;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 5, 0, 0, 1);*/
+    -fx-cursor: hand;
+    -fx-transition: translate-y 0.5s ease-in-out;
+
+}
+.contnainer-form-chat{
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 10px;
+}
+.page-chat{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 20px;
+}
+.page{
+     -fx-background-color: #FFFFFF;
+     -fx-background-radius: 20px;
+ }
+.border{
+    -fx-border-color: #2263F3;
+    -fx-border-radius: 10px;
+
+}
+
+.button:hover {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #000;
+    -fx-transition: translate-y 0.5s ease-in-out;
+}
+.opacity:hover{
+    -fx-background-color: #2263F388;
+}
+.button:pressed {
+    -fx-background-color: #1a237e;
+}
+
+.page-1{
+    -fx-background-color: green;
+}
+.page-2{
+     -fx-background-color: #ff0062;
+ }
+.page-3{
+      /*-fx-background-color: #df6062;*/
+  }
+
+/*   chat page */
+.from-message{
+    /*-fx-pref-height: 20px;*/
+    /*-fx-background-color: #ffcc12;*/
+}
+.wrapper-text-from{
+    /*-fx-background-color: red;*/
+}
+
+
+
+
+
+
+
+
