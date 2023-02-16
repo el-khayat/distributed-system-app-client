@@ -226,7 +226,7 @@ public class HelloController implements Initializable {
     }
     @FXML
     protected void onFilterButtonClick() {
-        label.setText("Chat");
+        label.setText("Filter");
         homePage.setVisible( false);
         matrixPage.setVisible( false);
         convolutionPage.setVisible( false);
