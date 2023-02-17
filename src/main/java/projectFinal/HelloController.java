@@ -202,6 +202,11 @@ public class HelloController implements Initializable {
         comboBoxLangue.getItems().add("Arabic");
         comboBoxLangue.getItems().add("French");
         comboBoxLangue.getItems().add("English");
+        comboBoxLangue.getItems().add("spanish");
+        comboBoxLangue.getItems().add("danish");
+        comboBoxLangue.getItems().add("Dutch");
+        comboBoxLangue.getItems().add("German");
+        comboBoxLangue.getItems().add("Chinese");
         comboBoxLangue.setValue("Arablic");
 
     }
