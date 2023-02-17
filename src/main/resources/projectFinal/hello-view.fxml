@@ -141,7 +141,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="homePage" layoutX="196.0" layoutY="76.0" prefHeight="650.0" prefWidth="850.0" styleClass="page" visible="false">
+      <AnchorPane fx:id="homePage" layoutX="196.0" layoutY="76.0" prefHeight="650.0" prefWidth="850.0" styleClass="page">
          <children>
             <AnchorPane layoutX="319.0" layoutY="157.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                <children>
@@ -450,7 +450,7 @@
             </TextArea>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="translatePage" layoutX="196.0" layoutY="76.0" prefHeight="650.0" prefWidth="850.0" styleClass="page">
+      <AnchorPane fx:id="translatePage" layoutX="196.0" layoutY="76.0" prefHeight="650.0" prefWidth="850.0" styleClass="page" visible="false">
          <children>
             <Button fx:id="translateButtonAction" layoutX="100.0" layoutY="280.0" mnemonicParsing="false" onAction="#translateText" styleClass="border" text="Translate" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="560.0" AnchorPane.topAnchor="280.0" />
             <TextArea fx:id="TextToTranslate" layoutX="88.0" layoutY="31.0" prefHeight="200.0" prefWidth="718.0" wrapText="true" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="45.0">
