@@ -8,6 +8,7 @@ module projectFinal {
 //    requires com.almasb.fxgl.all;
     requires java.desktop;
     requires java.rmi;
+    requires okhttp3 ;
 
 
     opens projectFinal to javafx.fxml;

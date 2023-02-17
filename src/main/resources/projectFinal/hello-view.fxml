@@ -12,7 +12,9 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -54,7 +56,7 @@
             <String fx:value="sidebare" />
          </styleClass>
          <children>
-            <Button fx:id="homeButton" alignment="TOP_LEFT" layoutX="15.0" layoutY="129.0" mnemonicParsing="false" onAction="#onHomeButtonClick" prefHeight="45.0" prefWidth="158.0" text="home" AnchorPane.leftAnchor="10.0">
+            <Button fx:id="homeButton" alignment="TOP_LEFT" layoutX="10.0" layoutY="66.0" mnemonicParsing="false" onAction="#onHomeButtonClick" prefHeight="45.0" prefWidth="158.0" text="home" AnchorPane.leftAnchor="10.0">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -69,7 +71,7 @@
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </padding>
             </Button>
-            <Button fx:id="matrixButton" alignment="TOP_LEFT" layoutX="15.0" layoutY="369.0" mnemonicParsing="false" onAction="#onMatrixButtonClick" prefHeight="45.0" prefWidth="158.0" text="matrix" AnchorPane.leftAnchor="10.0">
+            <Button fx:id="matrixButton" alignment="TOP_LEFT" layoutX="10.0" layoutY="306.0" mnemonicParsing="false" onAction="#onMatrixButtonClick" prefHeight="45.0" prefWidth="158.0" text="matrix" AnchorPane.leftAnchor="10.0">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -80,7 +82,7 @@
                <padding>
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </padding></Button>
-            <Button fx:id="convolutionButton" layoutX="15.0" layoutY="209.0" mnemonicParsing="false" onAction="#onConvolutionButtonClick" prefHeight="45.0" prefWidth="159.0" text="convolution" AnchorPane.leftAnchor="10.0">
+            <Button fx:id="convolutionButton" layoutX="10.0" layoutY="146.0" mnemonicParsing="false" onAction="#onConvolutionButtonClick" prefHeight="45.0" prefWidth="159.0" text="convolution" AnchorPane.leftAnchor="10.0">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -91,7 +93,7 @@
                <padding>
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </padding></Button>
-            <Button fx:id="filterButton" alignment="TOP_LEFT" layoutX="15.0" layoutY="289.0" mnemonicParsing="false" onAction="#onFilterButtonClick" prefHeight="45.0" prefWidth="158.0" text="Filter" AnchorPane.leftAnchor="10.0">
+            <Button fx:id="filterButton" alignment="TOP_LEFT" layoutX="10.0" layoutY="226.0" mnemonicParsing="false" onAction="#onFilterButtonClick" prefHeight="45.0" prefWidth="158.0" text="Filter" AnchorPane.leftAnchor="10.0">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -102,7 +104,7 @@
                <padding>
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </padding></Button>
-            <Button fx:id="chatButton" alignment="TOP_LEFT" layoutX="15.0" layoutY="449.0" mnemonicParsing="false" onAction="#onChatButtonClick" prefHeight="45.0" prefWidth="158.0" text="chat" AnchorPane.leftAnchor="10.0">
+            <Button fx:id="chatButton" alignment="TOP_LEFT" layoutX="10.0" layoutY="386.0" mnemonicParsing="false" onAction="#onChatButtonClick" prefHeight="45.0" prefWidth="158.0" text="chat" AnchorPane.leftAnchor="10.0">
                <graphic>
                   <ImageView fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -113,9 +115,33 @@
                <padding>
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </padding></Button>
+            <Button fx:id="grammareButton" alignment="TOP_LEFT" layoutX="14.0" layoutY="463.0" mnemonicParsing="false" onAction="#onGrammareButtonClick" prefHeight="45.0" prefWidth="158.0" text="grammare">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@asstes/book.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+            <Button fx:id="translateButton" alignment="TOP_LEFT" layoutX="14.0" layoutY="548.0" mnemonicParsing="false" onAction="#onTranslateButtonClick" prefHeight="45.0" prefWidth="158.0" text="translate">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@asstes/translate.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="homePage" layoutX="196.0" layoutY="76.0" prefHeight="650.0" prefWidth="850.0" styleClass="page">
+      <AnchorPane fx:id="homePage" layoutX="196.0" layoutY="76.0" prefHeight="650.0" prefWidth="850.0" styleClass="page" visible="false">
          <children>
             <AnchorPane layoutX="319.0" layoutY="157.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
                <children>
@@ -398,6 +424,55 @@
                   </Label>
                </children>
             </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="grammarePage" layoutX="196.0" layoutY="76.0" prefHeight="650.0" prefWidth="850.0" styleClass="page" visible="false">
+         <children>
+            <Button fx:id="correctButton" layoutX="100.0" layoutY="280.0" mnemonicParsing="false" onAction="#correctText" styleClass="border" text="get the correct text" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="560.0" AnchorPane.topAnchor="280.0" />
+            <TextArea fx:id="originText" layoutX="88.0" layoutY="31.0" prefHeight="200.0" prefWidth="718.0" wrapText="true" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="45.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="SW_RESIZE" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextArea>
+            <TextArea fx:id="correctText" layoutX="98.0" layoutY="325.0" prefHeight="200.0" prefWidth="710.0" visible="false" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextArea>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="translatePage" layoutX="196.0" layoutY="76.0" prefHeight="650.0" prefWidth="850.0" styleClass="page">
+         <children>
+            <Button fx:id="translateButtonAction" layoutX="100.0" layoutY="280.0" mnemonicParsing="false" onAction="#translateText" styleClass="border" text="Translate" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="560.0" AnchorPane.topAnchor="280.0" />
+            <TextArea fx:id="TextToTranslate" layoutX="88.0" layoutY="31.0" prefHeight="200.0" prefWidth="718.0" wrapText="true" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="45.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="SW_RESIZE" />
+               </cursor>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextArea>
+            <TextArea fx:id="translatedText" layoutX="98.0" layoutY="325.0" prefHeight="200.0" prefWidth="710.0" visible="false" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextArea>
+            <ComboBox fx:id="comboBoxLangue" layoutX="341.0" layoutY="280.0" prefHeight="45.0" prefWidth="159.0" />
          </children>
       </AnchorPane>
    </children>

@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -22,6 +19,7 @@ import javafx.stage.FileChooser;
 
 import javafx.stage.Popup;
 import javafx.stage.Stage;
+import okhttp3.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,6 +49,10 @@ public class HelloController implements Initializable {
     @FXML
     private AnchorPane filterPage;
     @FXML
+    private AnchorPane grammarePage;
+    @FXML
+    private AnchorPane translatePage;
+    @FXML
     private Button homeButton ;
     @FXML
     private Button chatButton ;
@@ -78,7 +80,7 @@ public class HelloController implements Initializable {
     String nakename = null ;
     ObjectOutputStream out;
     ObjectInputStream in ;
-    private String host = "localhost";
+    private String host = "192.168.43.149";
     private int port = 3336;
     Socket socket ;
 
@@ -158,6 +160,8 @@ public class HelloController implements Initializable {
     private TextField r9;
     @FXML
     private ComboBox comboBox ;
+    @FXML
+    private ComboBox comboBoxLangue ;
     float[][] res = new float[3][3];
     @FXML
     private AnchorPane PaneResMat;
@@ -167,6 +171,25 @@ public class HelloController implements Initializable {
     private Pane PaneConv;
     @FXML
     private Label displayName;
+    @FXML
+    private TextArea originText ;
+    @FXML
+    private TextArea correctText ;
+    @FXML
+    private TextArea TextToTranslate ;
+    @FXML
+    private TextArea translatedText ;
+    @FXML
+    private Button correctButton;
+
+    @FXML
+    private Button grammareButton;
+    @FXML
+    private Button translateButton;
+    @FXML
+
+    private Button translateButtonAction;
+    String concat = "";
 
 
 
@@ -176,62 +199,172 @@ public class HelloController implements Initializable {
         comboBox.getItems().add("+");
         comboBox.getItems().add("-");
         comboBox.getItems().add("*");
+        comboBoxLangue.getItems().add("Arabic");
+        comboBoxLangue.getItems().add("French");
+        comboBoxLangue.getItems().add("English");
+        comboBoxLangue.setValue("Arablic");
+
     }
-    public void CompleteText() {
+    public void CompleteText( ) {
+
+//        String msg = originText.getText();
+        String msg = "i am hapi todai";
+
+    }
+    public void correctText(){
+        String msg = originText.getText();
+        String order = "Could you please correct the grammar for this phrase?";
+        correctText.setVisible(true);
+
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"prompt\":\""+msg+"\",\"temperature\":0.5}");
+        Request request = new Request.Builder()
+//                    .url("https://api.openai.com/v1/engines/davinci-codex/completions")
+                .url("http://localhost:5000/correcttext")
+                .method("POST", body)
+                .addHeader("Content-Type", "application/json")
+//                    .addHeader("Authorization", "Bearer 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")
+                .build();
+        try (Response response = client.newCall(request).execute()) {
+            String rep = response.body().string();
+            String[] separatadeText = rep.split(" ");
+            concat = "";
+
+            System.out.println("done"+rep);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+
+                        for (int i = 0 ; i<separatadeText.length;i++){
+                            concat+=separatadeText[i]+" ";
+                            correctText.setText(concat);
+                            Thread.sleep(200);
+                        }
+
+                        // preloader.setOpacity(0);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    //preloader.setOpacity(0);
+                }
+            }).start();
 
 
-        String msg =  "hello";
-        System.out.println(msg);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+    public void translateText(){
+        String msg = TextToTranslate.getText();
+        String lang = ""+comboBoxLangue.getValue();
+        translatedText.setVisible(true);
+
+        OkHttpClient client = new OkHttpClient().newBuilder()
+                .build();
+        MediaType mediaType = MediaType.parse("application/json");
+        RequestBody body = RequestBody.create(mediaType, "{\"prompt\":\""+msg+"\",\"lang\":\""+lang+"\"}");
+        Request request = new Request.Builder()
+//                    .url("https://api.openai.com/v1/engines/davinci-codex/completions")
+                .url("http://localhost:5000/translatetext")
+                .method("POST", body)
+                .addHeader("Content-Type", "application/json")
+//                    .addHeader("Authorization", "Bearer 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")
+                .build();
+        try (Response response = client.newCall(request).execute()) {
+            String rep = response.body().string();
+            String[] separatadeText = rep.split(" ");
+            concat = "";
+
+            System.out.println("done"+rep);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+
+                        for (int i = 0 ; i<separatadeText.length;i++){
+                            concat+=separatadeText[i]+" ";
+                            translatedText.setText(concat);
+                            Thread.sleep(200);
+                        }
+
+                        // preloader.setOpacity(0);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    //preloader.setOpacity(0);
+                }
+            }).start();
 
 
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 
     @FXML
     protected void onHomeButtonClick() {
         label.setText("home");
+        closePages();
+
         homePage.setVisible( true);
+    }
+    @FXML
+    protected void onGrammareButtonClick() {
+        label.setText("grammare");
+        closePages();
+
+        grammarePage.setVisible( true);
+    }
+
+    @FXML
+    protected void onTranslateButtonClick() {
+        label.setText("Translate");
+        closePages();
+
+        translatePage.setVisible( true);
+    }
+    protected void closePages() {
+        homePage.setVisible( false);
         matrixPage.setVisible( false);
         convolutionPage.setVisible( false);
         filterPage.setVisible( false);
         chatPage.setVisible( false);
-        CompleteText();
+        translatePage.setVisible( false);
+        grammarePage.setVisible( false);
     }
+
     @FXML
     protected void onMatrixButtonClick() {
         label.setText("Matrix");
-        homePage.setVisible( false);
+        closePages();;
         matrixPage.setVisible( true);
-        convolutionPage.setVisible( false);
-        filterPage.setVisible( false);
-        chatPage.setVisible( false);
+
     }
     @FXML
     protected void onChatButtonClick() {
         label.setText("Chat");
-        homePage.setVisible( false);
-        matrixPage.setVisible( false);
-        convolutionPage.setVisible( false);
-        filterPage.setVisible( false);
+        closePages();
         chatPage.setVisible( true);
     }
     @FXML
     protected void onConvolutionButtonClick() {
         label.setText("Convolution");
-        homePage.setVisible( false);
-        matrixPage.setVisible( false);
+        closePages();
         convolutionPage.setVisible( true);
-        filterPage.setVisible( false);
-        chatPage.setVisible( false);
+
     }
     @FXML
     protected void onFilterButtonClick() {
         label.setText("Filter");
-        homePage.setVisible( false);
-        matrixPage.setVisible( false);
-        convolutionPage.setVisible( false);
+        closePages();
         filterPage.setVisible( true);
-        chatPage.setVisible( false);
     }
     @FXML
     protected void uploadFile() {
