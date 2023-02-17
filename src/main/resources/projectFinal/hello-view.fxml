@@ -440,7 +440,7 @@
                   <DropShadow />
                </effect>
             </TextArea>
-            <TextArea fx:id="correctText" layoutX="98.0" layoutY="325.0" prefHeight="200.0" prefWidth="710.0" visible="false" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+            <TextArea fx:id="correctText" layoutX="98.0" layoutY="325.0" prefHeight="200.0" prefWidth="710.0" visible="false" wrapText="true" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
                <effect>
                   <DropShadow />
                </effect>
@@ -464,7 +464,7 @@
                   <DropShadow />
                </effect>
             </TextArea>
-            <TextArea fx:id="translatedText" layoutX="98.0" layoutY="325.0" prefHeight="200.0" prefWidth="710.0" visible="false" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+            <TextArea fx:id="translatedText" layoutX="98.0" layoutY="325.0" prefHeight="200.0" prefWidth="710.0" visible="false" wrapText="true" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
                <effect>
                   <DropShadow />
                </effect>

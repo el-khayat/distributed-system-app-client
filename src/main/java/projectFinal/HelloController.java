@@ -80,7 +80,7 @@ public class HelloController implements Initializable {
     String nakename = null ;
     ObjectOutputStream out;
     ObjectInputStream in ;
-    private String host = "192.168.43.149";
+    private String host = "localhost";
     private int port = 3336;
     Socket socket ;
 
@@ -207,7 +207,7 @@ public class HelloController implements Initializable {
         comboBoxLangue.getItems().add("Dutch");
         comboBoxLangue.getItems().add("German");
         comboBoxLangue.getItems().add("Chinese");
-        comboBoxLangue.setValue("Arablic");
+        comboBoxLangue.setValue("Arabic");
 
     }
     public void CompleteText( ) {
@@ -412,8 +412,7 @@ public class HelloController implements Initializable {
             @Override
             public void run() {
                 try {
-                    System.out.println("filter rmi ");
-                    byte[] imageByte = util.applyFilterRMI(util.fileToByte(selectedFile),"red","localhost",9999);
+                    byte[] imageByte = util.applyFilterRMI(util.fileToByte(selectedFile),"red",host,9999);
                     util.byteToFile(imageByte,file);
                     Image image = new Image(file.toURI().toString());
                     imageView.setImage(image);
@@ -424,7 +423,6 @@ public class HelloController implements Initializable {
                 preloader.setOpacity(0);
             }
         }).start();
-
 
     }
     @FXML
@@ -437,7 +435,7 @@ public class HelloController implements Initializable {
             public void run() {
                 try {
                     System.out.println("filter rmi ");
-                    byte[] imageByte = util.applyFilterRMI(util.fileToByte(selectedFile),"green","localhost",9999);
+                    byte[] imageByte = util.applyFilterRMI(util.fileToByte(selectedFile),"green",host,9999);
                     util.byteToFile(imageByte,file);
                     Image image = new Image(file.toURI().toString());
                     imageView.setImage(image);
@@ -460,7 +458,7 @@ public class HelloController implements Initializable {
             public void run() {
                 try {
                     System.out.println("filter rmi ");
-                    byte[] imageByte = util.applyFilterRMI(util.fileToByte(selectedFile),"blue","localhost",9999);
+                    byte[] imageByte = util.applyFilterRMI(util.fileToByte(selectedFile),"blue",host,9999);
                     util.byteToFile(imageByte,file);
                     Image image = new Image(file.toURI().toString());
                     imageView.setImage(image);
@@ -483,7 +481,7 @@ public class HelloController implements Initializable {
             public void run() {
                 try {
                     System.out.println("filter rmi ");
-                    byte[] imageByte = util.applyFilterRMI(util.fileToByte(selectedFile),"gray","localhost",9999);
+                    byte[] imageByte = util.applyFilterRMI(util.fileToByte(selectedFile),"gray",host,9999);
                     util.byteToFile(imageByte,file);
                     Image image = new Image(file.toURI().toString());
                     imageView.setImage(image);
@@ -506,7 +504,7 @@ public class HelloController implements Initializable {
             public void run() {
                 try {
                     System.out.println("filter rmi ");
-                    byte[] imageByte = util.applyFilterRMI(util.fileToByte(selectedFile),"negative","localhost",9999);
+                    byte[] imageByte = util.applyFilterRMI(util.fileToByte(selectedFile),"negative",host,9999);
                     util.byteToFile(imageByte,file);
                     Image image = new Image(file.toURI().toString());
                     imageView.setImage(image);
@@ -529,7 +527,7 @@ public class HelloController implements Initializable {
             public void run() {
                 try {
                     System.out.println("filter rmi ");
-                    byte[] imageByte = util.applyFilterRMI(util.fileToByte(selectedFile),"sepia","localhost",9999);
+                    byte[] imageByte = util.applyFilterRMI(util.fileToByte(selectedFile),"sepia",host,9999);
                     util.byteToFile(imageByte,file);
                     Image image = new Image(file.toURI().toString());
                     imageView.setImage(image);
@@ -552,7 +550,7 @@ public class HelloController implements Initializable {
                 try {
                     float[] kernel = {0,0,0,0,1,0,0,0,0};
                     System.out.println("filter rmi ");
-                    byte[] imageByte = util.applyConvOnImage("localhost",3336,util.fileToByte(selectedFile),kernel);
+                    byte[] imageByte = util.applyConvOnImage(host,3336,util.fileToByte(selectedFile),kernel);
                     util.byteToFile(imageByte,file);
                     Image image = new Image(file.toURI().toString());
                     imageView.setImage(image);
@@ -577,7 +575,7 @@ public class HelloController implements Initializable {
                 try {
                     float[] kernel = {0,-1,0,-1,4,-1,0,-1,0};
                     System.out.println("filter rmi ");
-                    byte[] imageByte = util.applyConvOnImage("localhost",3336,util.fileToByte(selectedFile),kernel);
+                    byte[] imageByte = util.applyConvOnImage(host,3336,util.fileToByte(selectedFile),kernel);
                     util.byteToFile(imageByte,file);
                     Image image = new Image(file.toURI().toString());
                     imageView.setImage(image);
@@ -602,7 +600,7 @@ public class HelloController implements Initializable {
                 try {
                     float[] kernel = {-1,-1,-1,-1,8,-1,-1,-1,-1};
                     System.out.println("filter rmi ");
-                    byte[] imageByte = util.applyConvOnImage("localhost",3336,util.fileToByte(selectedFile),kernel);
+                    byte[] imageByte = util.applyConvOnImage(host,3336,util.fileToByte(selectedFile),kernel);
                     util.byteToFile(imageByte,file);
                     Image image = new Image(file.toURI().toString());
                     imageView.setImage(image);
@@ -627,7 +625,7 @@ public class HelloController implements Initializable {
                 try {
                     float[] kernel = {0,-1,0,-1,5,-1,0,-1,0} ;
                     System.out.println("filter rmi ");
-                    byte[] imageByte = util.applyConvOnImage("localhost",3336,util.fileToByte(selectedFile),kernel);
+                    byte[] imageByte = util.applyConvOnImage(host,3336,util.fileToByte(selectedFile),kernel);
                     util.byteToFile(imageByte,file);
                     Image image = new Image(file.toURI().toString());
                     imageView.setImage(image);
@@ -651,7 +649,7 @@ public class HelloController implements Initializable {
             public void run() {
                 try {
                     float[] kernel = {0,-1,0,-1,5,-1,0,-1,0};
-                    byte[] imageByte = util.applyConvOnImage("localhost",3336,util.fileToByte(selectedFile),kernel);
+                    byte[] imageByte = util.applyConvOnImage(host,3336,util.fileToByte(selectedFile),kernel);
                     util.byteToFile(imageByte,file);
                     Image image = new Image(file.toURI().toString());
                     imageView.setImage(image);
@@ -675,7 +673,7 @@ public class HelloController implements Initializable {
             public void run() {
                 try {
                     float[] kernel = {1/16,1/16,1/16,1/16,1/16,1/16,1/16,1/16,1/16};
-                    byte[] imageByte = util.applyConvOnImage("localhost",3336,util.fileToByte(selectedFile),kernel);
+                    byte[] imageByte = util.applyConvOnImage(host,3336,util.fileToByte(selectedFile),kernel);
                     util.byteToFile(imageByte,file);
                     Image image = new Image(file.toURI().toString());
                     imageView.setImage(image);
